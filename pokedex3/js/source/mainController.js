@@ -16,15 +16,6 @@ var app = angular.module('pokedex', ['ngRoute', 'ngAnimate'])
                 });
         }
     ])
-    .filter("tripla", function() {
-      return function(number) {
-        if (number !== null && number !== undefined) {
-          var str = "" + number;
-          while (str.length < 3) str = "0" + str;
-          return str;
-        }
-      };
-    })
     .factory('$storage', function() {
         return {
             data: [],
@@ -34,7 +25,7 @@ var app = angular.module('pokedex', ['ngRoute', 'ngAnimate'])
             get: function(index) {
                 return this.data[index] || [];
             }
-        };
+        }
     })
     .controller('main', ['$scope', '$location', '$http', '$storage', function($scope, $location, $http, $storage) {
         $scope.page = 'Pokedex';
@@ -52,10 +43,10 @@ var app = angular.module('pokedex', ['ngRoute', 'ngAnimate'])
         };
         $scope.close = function() {
             $scope.isOpen = false
-        };
+        }
         $scope.open = function(){
             $scope.isOpen = true
-        };
+        }
         $scope.hideInfo = function() {
             $location.path('')
         };
